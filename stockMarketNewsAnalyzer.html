@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link
+          href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+          rel="stylesheet"
+  />
+
+  <title>My Portfolio</title>
+  <!--
+  Reflux Template
+  https://templatemo.com/tm-531-reflux
+  -->
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css" />
+  <link rel="stylesheet" href="assets/css/templatemo-style.css" />
+  <link rel="stylesheet" href="assets/css/owl.css" />
+  <link rel="stylesheet" href="assets/css/lightbox.css" />
+</head>
+
+<body>
+<div id="page-wraper">
+  <!-- Sidebar Menu -->
+  <div class="responsive-nav">
+    <i class="fa fa-bars" id="menu-toggle"></i>
+    <div id="menu" class="menu">
+      <i class="fa fa-times" id="menu-close"></i>
+      <div class="container">
+        <div class="image">
+          <a href="#"><img src="assets/images/author-image.png" alt="" /></a>
+        </div>
+        <div class="author-content">
+          <h4>Luke S.</h4>
+          <span>Python/React Developer</span>
+          <br />
+          <span>16</span>
+        </div>
+        <nav class="main-nav" role="navigation">
+          <button id="homeButton" onclick="location.href='./index.html';">Home</button>
+        </nav>
+        <div class="social-network">
+          <ul class="soial-icons">
+            <li>
+              <a href="https://x.com/LukeShomper"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="https://paypal.me/ShomperLuke"><i class="fa fa-paypal"></i></a>
+            </li>
+            <li>
+              <a href="https://www.blockchain.com/explorer/addresses/btc/bc1qfgxc2cljn89muphvgn67mls6wce0cdwudzlyr0"><i class="fa fa-bitcoin"></i></a>
+            </li>
+          </ul>
+          <p>lukeshomper@gmail.com</p>>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section my-work" data-section="section3">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Stock Market News Analyzer</h2>
+        <div class="line-dec"></div>
+        <span>Since investing is a useful skill, but searching thousands of news articles to get a general change in how the market will change the next day is tedious, I decided that using an NLP I would make it analyze headlines</span>
+      </div>
+      <div class="right-image-post">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="left-text">
+              <h4>How I started</h4>
+              <p>
+                I started this project by finding a dataset, however the dataset I found was quite small which would hinder the models accuracy a lot. The next step was creating a very simple CNN (Convolutional Neural Network) model using Tensorflow that would go through and analyze the headlines and generate a prediction on how the market would respond the next day.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="right-image">
+              <img src="assets/images/macronutrient-appSnippet1.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>
+        After this, I would then proceed by formatting the dataset using the clean-text and re module.
+        After that I would tokenize the data converting words into their own unique number so that the AI can understand the words that the user had inputted to the prompt
+        then it was training the AI model which only took around an hour so it was pretty quick, This time around I didn't make a fancy UI
+        because I had no idea how I would implement it, so instead I just used pythons base Input function which worked well for my use case. All in all despite the mediocre results, however, I still gained good experience from making this project,
+        because It taught me how to make simpler, faster, more effective models, even if the dataset was too small to really see a great improvement
+      </p>
+      <h2>Tests:</h2>
+      <img src="assets/images/stockMarketNewsAnalyzerTest1.png" style="padding: 10px">
+      <img src="assets/images/stockMarketNewsAnalyzerTest2.png" style="padding: 10px">
+      <img src="assets/images/stockMarketNewsAnalyzerTest3.png" style="padding: 10px">
+      <p>While these tests show my model in its best light, some of the results were pretty poor...</p>
+      <img src="assets/images/stockMarketNewsAnalyzerFail1.png" style="padding: 10px">
+      <img src="assets/images/stockMarketNewsAnalyzerFail2.png" style="padding: 10px">
+    </div>
+  </section>
+</div>
+
+<!-- Scripts -->
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/js/isotope.min.js"></script>
+<script src="assets/js/owl-carousel.js"></script>
+<script src="assets/js/lightbox.js"></script>
+<script src="assets/js/custom.js"></script>
+<script>
+  //according to loftblog tut
+  $(".main-menu li:first").addClass("active");
+
+  var showSection = function showSection(section, isAnimate) {
+    var direction = section.replace(/#/, ""),
+            reqSection = $(".section").filter(
+                    '[data-section="' + direction + '"]'
+            ),
+            reqSectionPos = reqSection.offset().top - 0;
+
+    if (isAnimate) {
+      $("body, html").animate(
+              {
+                scrollTop: reqSectionPos
+              },
+              800
+      );
+    } else {
+      $("body, html").scrollTop(reqSectionPos);
+    }
+  };
+
+  var checkSection = function checkSection() {
+    $(".section").each(function() {
+      var $this = $(this),
+              topEdge = $this.offset().top - 80,
+              bottomEdge = topEdge + $this.height(),
+              wScroll = $(window).scrollTop();
+      if (topEdge < wScroll && bottomEdge > wScroll) {
+        var currentId = $this.data("section"),
+                reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+        reqLink
+                .closest("li")
+                .addClass("active")
+                .siblings()
+                .removeClass("active");
+      }
+    });
+  };
+
+  $(".main-menu").on("click", "a", function(e) {
+    e.preventDefault();
+    showSection($(this).attr("href"), true);
+  });
+
+  $(window).scroll(function() {
+    checkSection();
+  });
+</script>
+</body>
+</html>

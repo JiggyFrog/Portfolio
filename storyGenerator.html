@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link
+          href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+          rel="stylesheet"
+  />
+
+  <title>My Portfolio</title>
+  <!--
+  Reflux Template
+  https://templatemo.com/tm-531-reflux
+  -->
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css" />
+  <link rel="stylesheet" href="assets/css/templatemo-style.css" />
+  <link rel="stylesheet" href="assets/css/owl.css" />
+  <link rel="stylesheet" href="assets/css/lightbox.css" />
+</head>
+
+<body>
+<div id="page-wraper">
+  <!-- Sidebar Menu -->
+  <div class="responsive-nav">
+    <i class="fa fa-bars" id="menu-toggle"></i>
+    <div id="menu" class="menu">
+      <i class="fa fa-times" id="menu-close"></i>
+      <div class="container">
+        <div class="image">
+          <a href="#"><img src="assets/images/author-image.png" alt="" /></a>
+        </div>
+        <div class="author-content">
+          <h4>Luke S.</h4>
+          <span>Python/React Developer</span>
+          <br />
+          <span>16</span>
+        </div>
+        <nav class="main-nav" role="navigation">
+          <button id="homeButton" onclick="location.href='./index.html';">Home</button>
+        </nav>
+        <div class="social-network">
+          <ul class="soial-icons">
+            <li>
+              <a href="https://x.com/LukeShomper"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="https://paypal.me/ShomperLuke"><i class="fa fa-paypal"></i></a>
+            </li>
+            <li>
+              <a href="https://www.blockchain.com/explorer/addresses/btc/bc1qfgxc2cljn89muphvgn67mls6wce0cdwudzlyr0"><i class="fa fa-bitcoin"></i></a>
+            </li>
+          </ul>
+          <p>lukeshomper@gmail.com</p>>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section my-work" data-section="section3">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Story Generator</h2>
+        <div class="line-dec"></div>
+        <span>I wanted to learn about NLPs (Natural Language Processors). These are a type of processor that turns words into numbers so they can be processed by computers easier. I used a tokenizer and an embedding layer in order to achieve this and feed it into my AI so that it could generate the next part of the story</span>
+      </div>
+      <div class="right-image-post">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="left-text">
+              <h4>How I started</h4>
+              <p>
+                I wanted to learn how chat-gpt worked so in order to do this I decided that I would make an RNN (Recursive Neural Network) that would take the previous 50 words in the story and attempt to guess which word in its vocabulary would be next. Repeat this over and over and it can generate somewhat coherent sequences of text
+                To start I studied how NLPs work and how to recreate them in tensorflow. I then proceeded to make a processing function that would convert all the data from the authors that I could copy due to their works being in the public domain I used shakespeare, and a couple other authors that had good long texts that could easily be formed
+                into a dataset. After cleaning the text and converting it to data that can be used by the AI model, I would create a training loop and train the model which would take about one night (I didn't train it longer because the model would probably overfit due to the small dataset size) after it could generate the next word
+                I just made it do that in a for loop and the model was complete!
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="right-image">
+              <img src="assets/images/storyGeneratorProof.gif" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="left-image-post">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="left-image">
+              <img src="assets/images/storyGeneratorSnippet.png" alt="" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="right-text">
+              <h4>Creating the javascript GUI & The results</h4>
+              <p>
+                After that I used a flask server in order to forward the information to a locally hosted website this was in order to make a better visualization of the words and them being generated live
+                I think the website turned out great as it very clearly visualized the text being generated, and it felt live despite being two-ish seconds delayed. However,
+                Due to the lack of data, sequence length, and training of the model, the story that the model generates isn't that great. If I had more time to build a bigger dataset and had more time to train the model I think the outputs could have been much better. Regardless, I am still happy with how it turned out
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      </div>
+  </section>
+</div>
+
+<!-- Scripts -->
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/js/isotope.min.js"></script>
+<script src="assets/js/owl-carousel.js"></script>
+<script src="assets/js/lightbox.js"></script>
+<script src="assets/js/custom.js"></script>
+<script>
+  //according to loftblog tut
+  $(".main-menu li:first").addClass("active");
+
+  var showSection = function showSection(section, isAnimate) {
+    var direction = section.replace(/#/, ""),
+            reqSection = $(".section").filter(
+                    '[data-section="' + direction + '"]'
+            ),
+            reqSectionPos = reqSection.offset().top - 0;
+
+    if (isAnimate) {
+      $("body, html").animate(
+              {
+                scrollTop: reqSectionPos
+              },
+              800
+      );
+    } else {
+      $("body, html").scrollTop(reqSectionPos);
+    }
+  };
+
+  var checkSection = function checkSection() {
+    $(".section").each(function() {
+      var $this = $(this),
+              topEdge = $this.offset().top - 80,
+              bottomEdge = topEdge + $this.height(),
+              wScroll = $(window).scrollTop();
+      if (topEdge < wScroll && bottomEdge > wScroll) {
+        var currentId = $this.data("section"),
+                reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+        reqLink
+                .closest("li")
+                .addClass("active")
+                .siblings()
+                .removeClass("active");
+      }
+    });
+  };
+
+  $(".main-menu").on("click", "a", function(e) {
+    e.preventDefault();
+    showSection($(this).attr("href"), true);
+  });
+
+  $(window).scroll(function() {
+    checkSection();
+  });
+</script>
+</body>
+</html>

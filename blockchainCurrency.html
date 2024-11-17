@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link
+          href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+          rel="stylesheet"
+  />
+
+  <title>My Portfolio</title>
+  <!--
+  Reflux Template
+  https://templatemo.com/tm-531-reflux
+  -->
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css" />
+  <link rel="stylesheet" href="assets/css/templatemo-style.css" />
+  <link rel="stylesheet" href="assets/css/owl.css" />
+  <link rel="stylesheet" href="assets/css/lightbox.css" />
+</head>
+
+<body>
+<div id="page-wraper">
+  <!-- Sidebar Menu -->
+  <div class="responsive-nav">
+    <i class="fa fa-bars" id="menu-toggle"></i>
+    <div id="menu" class="menu">
+      <i class="fa fa-times" id="menu-close"></i>
+      <div class="container">
+        <div class="image">
+          <a href="#"><img src="assets/images/author-image.png" alt="" /></a>
+        </div>
+        <div class="author-content">
+          <h4>Luke S.</h4>
+          <span>Python/React Developer</span>
+          <br />
+          <span>16</span>
+        </div>
+        <nav class="main-nav" role="navigation">
+          <button id="homeButton" onclick="location.href='./index.html';">Home</button>
+        </nav>
+        <div class="social-network">
+          <ul class="soial-icons">
+            <li>
+              <a href="https://x.com/LukeShomper"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="https://paypal.me/ShomperLuke"><i class="fa fa-paypal"></i></a>
+            </li>
+            <li>
+              <a href="https://www.blockchain.com/explorer/addresses/btc/bc1qfgxc2cljn89muphvgn67mls6wce0cdwudzlyr0"><i class="fa fa-bitcoin"></i></a>
+            </li>
+          </ul>
+          <p>lukeshomper@gmail.com</p>>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section my-work" data-section="section3">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Blockchain Currency</h2>
+        <div class="line-dec"></div>
+        <span>The way I came up with this is a bit embarrassing, I asked chat-gpt for a project idea, and it gave me a blockchain and I thought it would be
+        pretty cool to remake a cryptocurrency like Bitcoin, so, that's what I did.</span>
+      </div>
+      <div class="right-image-post">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="left-text">
+              <h4>How I started</h4>
+              <p>
+                To start this project I first began by researching how a blockchain actually worked, I had a basic idea however, I didn't really know what I was doing or how I would implement it.
+                So, after researching I made a simple class that would handle all the server and local side things that my currency would use.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="right-image">
+              <img src="assets/images/blockchainSnippet.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="left-image-post">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="left-image">
+              <img src="assets/images/blockchainServer.png" alt="" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="right-text">
+              <h4>Creating the blockchain</h4>
+              <p>
+                In order to create the blockchain what I first had to do was create a list of objects that would contain data about the block and the block before it.
+                 After I created a POW (Proof-Of-Work) function that would require work to be done (I used SHA-256) in order to find a valid nonce for that block. After it was found It would be sent to the server and broadcast to the rest of the miners that the block had been found and that they could move on to the next one.
+              </p>
+              <p>
+                 With mining complete and creating and updating blocks being completed I now had to work on transactions and wallets, This was decently simple thanks to a library that would allow me to implement
+                 A NIST384p cryptographic signing method, I don't really know the inner workings of the function as of now, however, I am hoping to recreate a function like that in order to understand cryptology on a deeper level.
+                 However, with the function a user of the blockchain would get two keys, a private key and a public one, the private one would be used to sign data and confirm that the person who owns the account made the transaction.
+                 And the public key is used for other people to verify that the transaction happened. Put them all together, and you now have a working system, but, no GUI.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-image-post">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="left-text">
+              <h4>Wallet GUI</h4>
+              <p>
+                Using custom Tkinter I created what I think is a nice GUI that would allow users to see how much of the currency they had, their public wallet ID, and a button to send currency to another user. This was mostly just plug and play due to how I built my main class
+                so, it was decently simple.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="right-image">
+              <img src="assets/images/blockchainGui.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      </div>
+  </section>
+</div>
+
+<!-- Scripts -->
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/js/isotope.min.js"></script>
+<script src="assets/js/owl-carousel.js"></script>
+<script src="assets/js/lightbox.js"></script>
+<script src="assets/js/custom.js"></script>
+<script>
+  //according to loftblog tut
+  $(".main-menu li:first").addClass("active");
+
+  var showSection = function showSection(section, isAnimate) {
+    var direction = section.replace(/#/, ""),
+            reqSection = $(".section").filter(
+                    '[data-section="' + direction + '"]'
+            ),
+            reqSectionPos = reqSection.offset().top - 0;
+
+    if (isAnimate) {
+      $("body, html").animate(
+              {
+                scrollTop: reqSectionPos
+              },
+              800
+      );
+    } else {
+      $("body, html").scrollTop(reqSectionPos);
+    }
+  };
+
+  var checkSection = function checkSection() {
+    $(".section").each(function() {
+      var $this = $(this),
+              topEdge = $this.offset().top - 80,
+              bottomEdge = topEdge + $this.height(),
+              wScroll = $(window).scrollTop();
+      if (topEdge < wScroll && bottomEdge > wScroll) {
+        var currentId = $this.data("section"),
+                reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+        reqLink
+                .closest("li")
+                .addClass("active")
+                .siblings()
+                .removeClass("active");
+      }
+    });
+  };
+
+  $(".main-menu").on("click", "a", function(e) {
+    e.preventDefault();
+    showSection($(this).attr("href"), true);
+  });
+
+  $(window).scroll(function() {
+    checkSection();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link
+          href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+          rel="stylesheet"
+  />
+
+  <title>My Portfolio</title>
+  <!--
+  Reflux Template
+  https://templatemo.com/tm-531-reflux
+  -->
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css" />
+  <link rel="stylesheet" href="assets/css/templatemo-style.css" />
+  <link rel="stylesheet" href="assets/css/owl.css" />
+  <link rel="stylesheet" href="assets/css/lightbox.css" />
+</head>
+
+<body>
+<div id="page-wraper">
+  <!-- Sidebar Menu -->
+  <div class="responsive-nav">
+    <i class="fa fa-bars" id="menu-toggle"></i>
+    <div id="menu" class="menu">
+      <i class="fa fa-times" id="menu-close"></i>
+      <div class="container">
+        <div class="image">
+          <a href="#"><img src="assets/images/author-image.png" alt="" /></a>
+        </div>
+        <div class="author-content">
+          <h4>Luke S.</h4>
+          <span>Python/React Developer</span>
+          <br />
+          <span>16</span>
+        </div>
+        <nav class="main-nav" role="navigation">
+          <button id="homeButton" onclick="location.href='./index.html';">Home</button>
+        </nav>
+        <div class="social-network">
+          <ul class="soial-icons">
+            <li>
+              <a href="https://x.com/LukeShomper"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="https://paypal.me/ShomperLuke"><i class="fa fa-paypal"></i></a>
+            </li>
+            <li>
+              <a href="https://www.blockchain.com/explorer/addresses/btc/bc1qfgxc2cljn89muphvgn67mls6wce0cdwudzlyr0"><i class="fa fa-bitcoin"></i></a>
+            </li>
+          </ul>
+          <p>lukeshomper@gmail.com</p>>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section my-work" data-section="section3">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Macro Tracker</h2>
+        <div class="line-dec"></div>
+        <span>Since I am big into fitness I decided to make an application to track your macronutrients. This would be my first time using react native (excluding a really barebones tutorial) and I would say it came out really good
+            especially for the first time ever creating a project using react native.</span>
+      </div>
+      <div class="right-image-post">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="left-text">
+              <h4>How I started</h4>
+              <p>
+                I started by learning how to actually use react-native for a week by creating a quick task tracker following a tutorial. After, I proceeded by designing how I would like my app to look in figma so that It would hopefully look good.
+                Then, I started by creating an expo project so I could run it on IOS because I do not have an Android device. Once I was settled in it was time to start programming the essential functions!
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="right-image">
+              <img src="assets/images/macronutrient-appSnippet1.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="right-image-post">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="left-text">
+              <h4>Designing the main components</h4>
+              <p>
+                After the base layout was down and in code, I began to design api getting functions and started looking for an API to use to get the food from barcode.
+                I found <a href="https://world.openfoodfacts.org">OpenFoodFacts.org</a> and could get information from it using their API, I used the default expo barcode scanner from the camera
+                in order to get the barcode of the food the user was scanning.
+              </p>
+              <p>
+                After I could get requests I would have to store them somewhere. Since I am not really about buying a database and this was more of a test project
+                I decided that I would instead store it on the local device which isn't what I would do if it was going to go into production, however, I don't think I am anywhere close
+                to releasing this publicly yet.
+              </p>
+              <p>
+                After they were stored I created a couple new widgets in order to display the foods that the person logged and also gave them the option to edit the open food facts database
+                in case if the data for the food they logged wasn't available. With this the app was actually pretty fleshed out and this is where I stopped for now in order to pursue
+                a new idea that I wanted to try, AI
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="right-image">
+              <img src="assets/images/macronutrient-appSnippet2.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Scripts -->
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/js/isotope.min.js"></script>
+<script src="assets/js/owl-carousel.js"></script>
+<script src="assets/js/lightbox.js"></script>
+<script src="assets/js/custom.js"></script>
+<script>
+  //according to loftblog tut
+  $(".main-menu li:first").addClass("active");
+
+  var showSection = function showSection(section, isAnimate) {
+    var direction = section.replace(/#/, ""),
+            reqSection = $(".section").filter(
+                    '[data-section="' + direction + '"]'
+            ),
+            reqSectionPos = reqSection.offset().top - 0;
+
+    if (isAnimate) {
+      $("body, html").animate(
+              {
+                scrollTop: reqSectionPos
+              },
+              800
+      );
+    } else {
+      $("body, html").scrollTop(reqSectionPos);
+    }
+  };
+
+  var checkSection = function checkSection() {
+    $(".section").each(function() {
+      var $this = $(this),
+              topEdge = $this.offset().top - 80,
+              bottomEdge = topEdge + $this.height(),
+              wScroll = $(window).scrollTop();
+      if (topEdge < wScroll && bottomEdge > wScroll) {
+        var currentId = $this.data("section"),
+                reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+        reqLink
+                .closest("li")
+                .addClass("active")
+                .siblings()
+                .removeClass("active");
+      }
+    });
+  };
+
+  $(".main-menu").on("click", "a", function(e) {
+    e.preventDefault();
+    showSection($(this).attr("href"), true);
+  });
+
+  $(window).scroll(function() {
+    checkSection();
+  });
+</script>
+</body>
+</html>
