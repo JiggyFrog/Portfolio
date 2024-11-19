@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link
+          href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+          rel="stylesheet"
+  />
+
+  <title>My Portfolio</title>
+  <!--
+  Reflux Template
+  https://templatemo.com/tm-531-reflux
+  -->
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css" />
+  <link rel="stylesheet" href="assets/css/templatemo-style.css" />
+  <link rel="stylesheet" href="assets/css/owl.css" />
+  <link rel="stylesheet" href="assets/css/lightbox.css" />
+</head>
+
+<body>
+<div id="page-wraper">
+  <!-- Sidebar Menu -->
+  <div class="responsive-nav">
+    <i class="fa fa-bars" id="menu-toggle"></i>
+    <div id="menu" class="menu">
+      <i class="fa fa-times" id="menu-close"></i>
+      <div class="container">
+        <div class="image">
+          <a href="#"><img src="assets/images/author-image.png" alt="" /></a>
+        </div>
+        <div class="author-content">
+          <h4>Luke S.</h4>
+          <span>Python/React Developer</span>
+          <br />
+          <span>16</span>
+        </div>
+        <nav class="main-nav" role="navigation">
+          <button id="homeButton" onclick="location.href='./index.html';">Home</button>
+        </nav>
+        <div class="social-network">
+          <ul class="soial-icons">
+            <li>
+              <a href="https://x.com/LukeShomper"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="https://paypal.me/ShomperLuke"><i class="fa fa-paypal"></i></a>
+            </li>
+            <li>
+              <a href="https://www.blockchain.com/explorer/addresses/btc/bc1qfgxc2cljn89muphvgn67mls6wce0cdwudzlyr0"><i class="fa fa-bitcoin"></i></a>
+            </li>
+          </ul>
+          <p>lukeshomper@gmail.com</p>>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section my-work" data-section="section3">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Bitcoin Day Trader</h2>
+        <div class="line-dec"></div>
+        <span>I wanted to learn how good an AI would be at day trading due to the amount of get rich quick ethereum trading bot ads I was seeing</span>
+      </div>
+      <div class="right-image-post">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="left-text">
+              <h4>How I started</h4>
+              <p>
+                I first began by creating a dataset managing class that would manage all the data for bitcoin prices every 15m since 2018
+                This class was very simple all it did was give me easy access to this data and a really convenient way to plug it into my AI model.
+                I formatted the data so that the AI would be classifying using binary crossentropy to predict that based on the previous six candlesticks if the next candlestick would go up, or down
+                Next I started to work on a class for the model itself which was just using tensorflow and keras to create a simple model
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="right-image">
+              <img src="assets/images/BitcoinDayTraderSnippet_3.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="left-image-post">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="left-image">
+              <img src="assets/images/BitcoinDayTraderSnippet_1.png" alt="" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="right-text">
+              <h4>Training</h4>
+              <p>
+                After that I trained the model overnight (~500 epochs) and it was set to go trade, however there was one very important step to making it work
+                I needed to figure out an API to gather new information, and submit trades, for this I chose xeggex.com as they had a very in depth api and seemed really simple to use.
+                One hurdle that I overcame was that the API required authentication to make sure it was me making the trade, which makes sense. However, it required an HMAC Sha-256 Signature. So, I used the
+                hashlib, and hmac libraries in order to create this signature so that it could verify my trades and actually put them in. I traded it for a little until I realized that because bitcoin is not very
+                volatile I was getting destroyed by trading fees, however, if there were no trading fees the bot wouldn't have actually done that bad.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <h1>Results</h1>
+
+      <p>The results were actually pretty good as it had around an 83% training accuracy and a 72% field accuracy. I am quite proud of this bot because it worked really well for what it is
+      I'm thinking about upgrading this project later but training it on a more volatile coin so that maybe it can turn a profit.</p>
+      <img src="assets/images/bitcoinDayTraderResults_1.png" alt="results 1" style="padding: 10px">
+      <img src="assets/images/bitcoinDayTraderResults_2.png" alt="results 2" style="padding: 10px">
+
+      </div>
+  </section>
+</div>
+
+<!-- Scripts -->
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/js/isotope.min.js"></script>
+<script src="assets/js/owl-carousel.js"></script>
+<script src="assets/js/lightbox.js"></script>
+<script src="assets/js/custom.js"></script>
+<script>
+  //according to loftblog tut
+  $(".main-menu li:first").addClass("active");
+
+  var showSection = function showSection(section, isAnimate) {
+    var direction = section.replace(/#/, ""),
+            reqSection = $(".section").filter(
+                    '[data-section="' + direction + '"]'
+            ),
+            reqSectionPos = reqSection.offset().top - 0;
+
+    if (isAnimate) {
+      $("body, html").animate(
+              {
+                scrollTop: reqSectionPos
+              },
+              800
+      );
+    } else {
+      $("body, html").scrollTop(reqSectionPos);
+    }
+  };
+
+  var checkSection = function checkSection() {
+    $(".section").each(function() {
+      var $this = $(this),
+              topEdge = $this.offset().top - 80,
+              bottomEdge = topEdge + $this.height(),
+              wScroll = $(window).scrollTop();
+      if (topEdge < wScroll && bottomEdge > wScroll) {
+        var currentId = $this.data("section"),
+                reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+        reqLink
+                .closest("li")
+                .addClass("active")
+                .siblings()
+                .removeClass("active");
+      }
+    });
+  };
+
+  $(".main-menu").on("click", "a", function(e) {
+    e.preventDefault();
+    showSection($(this).attr("href"), true);
+  });
+
+  $(window).scroll(function() {
+    checkSection();
+  });
+</script>
+</body>
+</html>
